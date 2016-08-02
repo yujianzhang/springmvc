@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- 延迟加载 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<setting name="aggressiveLazyLoading" value="false"/>
+		<!-- 二级缓存开启,一级缓存默认开启，二级缓存默认也是true，但需要在mapper.xml文件中开启，即
+				<cache type="org.mybatis.caches.ehcache.EhcacheCache" />这里使用了ehcache，mybatis默认使用的是：
+				<cache type="org.apache.ibatis.cache.impl.PerpetualCache" \>
+		 -->
+		<setting name="cacheEnabled" value="true" />
+	</settings>
+	
+	<typeAliases>
+		<!-- 批量扫描别名 -->
+		<package name="com.fc.ssm.entity"/>
+	</typeAliases>
+	
+	<!-- 
+	加载映射文件 ,applicationContext.xml文件中使用mapper批量扫描，此处可省略
+	<mappers>
+		<mapper resource="com/fc/ssm/mapper/item/ItemsMapper.xml"/>
+		<mapper resource="com/fc/ssm/mapper/order/OrdersMapper.xml"/>
+		
+		
+		使用批量加载mapper时，mapper.xml文件和mapper.java文件必须同名且在同一个包下 
+		<package name="com.fc.ssm.mapper"/>
+	</mappers>
+	-->
+</configuration>
