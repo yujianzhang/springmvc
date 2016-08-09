@@ -1,4 +1,4 @@
-package com.fc.ssm.service.impl;
+package com.fc.ssm.service.item.impl;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import com.fc.ssm.entity.ItemsCustomer;
 import com.fc.ssm.entity.ItemsQueryVo;
 import com.fc.ssm.mapper.item.ItemsMapper;
 import com.fc.ssm.mapper.item.ItemsMapperCustomer;
-import com.fc.ssm.service.ItemsService;
+import com.fc.ssm.service.item.ItemsService;
 
 @Transactional
 @Service("itemsService")

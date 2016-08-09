@@ -16,7 +16,7 @@
 	<!-- 采用注释的方式配置bean -->
 	<context:annotation-config />
 	<!-- 配置要扫描的包 -->
-	<context:component-scan base-package="com.fc.ssm.service"/>
+	<context:component-scan base-package="com.fc.ssm.service.*"/>
 	
 	<!--proxy-target-class="true"强制使用cglib代理   如果为false则spring会自动选择-->
 	<aop:aspectj-autoproxy  proxy-target-class="true"/>

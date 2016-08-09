@@ -1,4 +1,4 @@
-package com.fc.ssm.service;
+package com.fc.ssm.service.item;
 
 import java.util.List;
 

@@ -25,7 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fc.ssm.entity.Items;
 import com.fc.ssm.entity.ItemsCustomer;
 import com.fc.ssm.entity.ItemsQueryVo;
-import com.fc.ssm.service.ItemsService;
+import com.fc.ssm.service.item.ItemsService;
 
 /**
  * 查询商品信息
