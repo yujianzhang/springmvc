@@ -1,5 +1,7 @@
 package com.fc.ssm.controller.watermark;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,8 +38,8 @@ public class WatermarkController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/uploadImg")
-	public ModelAndView uploadImg(MultipartFile file, Watermark watermark) throws Exception {
-		Watermark rest = uploadService.uploadImg(file, watermark);
+	public ModelAndView uploadImg(MultipartFile file, Watermark watermark,HttpServletRequest request) throws Exception {
+		Watermark rest = uploadService.uploadImg(file, watermark,request);
 		 ModelAndView view = new ModelAndView();
 		 view.setViewName("watermark/success.jsp");
 		 view.addObject("watermark",rest);

@@ -1,6 +1,5 @@
 package com.fc.ssm.service.watermark.impl;
 
-import java.awt.AlphaComposite;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -17,8 +16,8 @@ import org.springframework.stereotype.Service;
 import com.fc.ssm.service.watermark.MarkService;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
-@Service("markServiceSingle")
-public class MarkServiceSingle implements MarkService{
+@Service("markServiceMulti")
+public class MarkServiceMulti implements MarkService{
 
 	@Override
 	public String watermark(File file,String fileName,String path,HttpServletRequest request) {
@@ -42,18 +41,21 @@ public class MarkServiceSingle implements MarkService{
 			
 			int width1 = FONT_SIZE * getTextLength(MARK_TEXT);
 			int height1 = FONT_SIZE;
-			int widthDiff = width - width1;
-			int hightDiff = height - height1;
-			int x = X;
-			int y = Y;
-			if(x > widthDiff){
-				x = widthDiff;
+			
+			g.rotate(Math.toRadians(30), bufferedImage.getWidth()/2, bufferedImage.getHeight()/2);
+			
+			int x = -width/2;
+			int y = -height/2;
+			
+			while(x<width*1.5){
+				y = -height/2;
+				while(y<height*1.5){
+					g.drawString(MARK_TEXT,x,y);
+					y+= height1 + 100; 
+				}
+				x+= width1 + 100;
 			}
-			if(y > hightDiff){
-				y = hightDiff;
-			}
-			g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, ALPHA));
-			g.drawString(MARK_TEXT, x, y + FONT_SIZE);
+			
 			g.dispose();
 			// 创建图像编码工具类
 			os = new FileOutputStream(path + logoFileName);

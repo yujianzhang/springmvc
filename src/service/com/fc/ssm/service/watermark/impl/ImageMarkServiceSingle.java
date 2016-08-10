@@ -17,13 +17,16 @@ import org.springframework.stereotype.Service;
 import com.fc.ssm.service.watermark.MarkService;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
-@Service("markServiceSingle")
-public class MarkServiceSingle implements MarkService{
+@Service("imageMarkServiceSingle")
+public class ImageMarkServiceSingle implements MarkService{
 
 	@Override
 	public String watermark(File file,String fileName,String path,HttpServletRequest request) {
 		String logoFileName = "logo_" + fileName;
 		OutputStream os = null;
+		// String files = Thread.currentThread().getContextClassLoader().getResource("/").getPath()+"/";
+		String files = request.getSession().getServletContext().getRealPath("/image");
+		String logoPath = files + "/" +LOGO;
 		try {
 			// 获取图片的信息
 			Image image2 = ImageIO.read(file);
@@ -40,8 +43,11 @@ public class MarkServiceSingle implements MarkService{
 			g.setFont(new Font(FONT_NAME,FONT_STYLE,FONT_SIZE));//文字水印
 			g.setColor(MARK_COLOR);
 			
-			int width1 = FONT_SIZE * getTextLength(MARK_TEXT);
-			int height1 = FONT_SIZE;
+			
+			File fileLogo = new File(logoPath);
+			Image logo = ImageIO.read(fileLogo);
+			int width1 = logo.getWidth(null);
+			int height1 = logo.getHeight(null);
 			int widthDiff = width - width1;
 			int hightDiff = height - height1;
 			int x = X;
@@ -53,7 +59,7 @@ public class MarkServiceSingle implements MarkService{
 				y = hightDiff;
 			}
 			g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, ALPHA));
-			g.drawString(MARK_TEXT, x, y + FONT_SIZE);
+			g.drawImage(logo, x, y, null);
 			g.dispose();
 			// 创建图像编码工具类
 			os = new FileOutputStream(path + logoFileName);
@@ -61,6 +67,7 @@ public class MarkServiceSingle implements MarkService{
 			// 使用图像编码工具类，输出缓存图像到目标文件
 			en.encode(bufferedImage);
 		} catch (Exception e) {
+			e.printStackTrace();
 		}finally{
 			if(os != null){
 				try {
@@ -72,15 +79,5 @@ public class MarkServiceSingle implements MarkService{
 
 		return path + logoFileName;
 	}
-	public int getTextLength(String text){
-		int length = text.length();
-		for (int i = 0; i < text.length(); i++) {
-			String s = String.valueOf(text.charAt(i));
-			if(s.getBytes().length>1){
-				length++;
-			}
-		}
-		length = length%2==0?length/2:length/2+1;
-		return length;
-	}
+
 }
