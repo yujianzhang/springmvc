@@ -37,9 +37,12 @@
 		<property name="suffix" value="" />
  	</bean>
  	
- 	<!-- 静态资源解析 -->
+ 	<!-- 静态资源解析   这种方式报错，暂未解决，用mvc:default-servlet-handler代替
  	<mvc:resources location="/js/" mapping="/js/**"/>
- 	<mvc:resources location="/img/" mapping="/img/**"/>
+ 	<mvc:resources location="/image/" mapping="/image/**"/>
+ 	-->
+ 	<!-- 处理静态资源 -->
+	<mvc:default-servlet-handler />
  	
  	<!-- 自定义参数绑定 -->
  	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
@@ -60,7 +63,7 @@
         	单位：字节
         1千字节(kb)=1024字节(b)
          -->  
-        <property name="maxUploadSize" value="204800"/>  
+        <property name="maxUploadSize" value="2048000"/>  
     </bean>  
  	
  	
