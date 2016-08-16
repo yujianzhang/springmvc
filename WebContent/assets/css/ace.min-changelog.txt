@@ -1,0 +1,4 @@
+# xuefeng 2014-8-4 增加cursor:pointer;
+li.complete:hover .step{cursor:pointer;
+# donghaikang 2014-8-12 删除
+-webkit-transition-duration:.1s;transition-duration:.1s

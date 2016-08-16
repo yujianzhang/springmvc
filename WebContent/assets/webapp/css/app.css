@@ -1,0 +1,224 @@
+/* Write your styles */
+.am-header .am-header-nav img {
+	height: 24px;
+}
+
+.am-main-content {
+	margin: 0px;
+	padding: 0;
+	min-height: 100%;
+}
+
+.am-page-content {
+	background: #fff;
+	margin: 0;
+	padding: 8px 12px 24px;
+}
+
+.am-panel-hd h1 {
+	padding: 0;
+	margin: 0 8px;
+	font-size: 24px;
+	font-weight: lighter;
+	color: #2679b5;
+}
+
+.am-panel-hd h1 small {
+	margin: 0 6px;
+	font-size: 14px;
+	font-weight: normal;
+	color: #8089a0;
+}
+
+.am-accordion-gapped .am-accordion-item {
+	border: 0px;
+	counter-reset: section;
+}
+
+.am-accordion-gapped .am-accordion-item>.am-accordion-title {
+	border-left: 2px solid #6eaed1;
+	border-bottom: 0px;
+	background-color: #f1f8fd;
+	color: #0e90d2;
+}
+
+.am-accordion-gapped .am-accordion-item.am-active {
+	border-bottom: 0px;
+}
+
+.am-accordion-gapped .am-accordion-item.am-active>.am-accordion-title {
+	font-weight: 800;
+}
+
+.am-fag {
+	position: relative;
+}
+
+.am-list>li:first-child {
+	border-width: 0 0 1px 0;
+}
+
+.am-faq .am-faq-title:before {
+	content: "Q" counter(section);
+	counter-increment: section;
+}
+
+.am-faq .am-faq-title {
+	padding-left: 4px;
+	font-size: 1.4rem;
+	font-weight: bold;
+	min-height: 26px;
+	line-height: 22px;
+}
+
+.am-faq .am-faq-content {
+	padding-left: 2em;
+}
+
+.am-faq .am-faq-content ul {
+	padding-left: 1em;
+}
+
+.am-faq .am-faq-content ul li {
+	padding: 2px 0;
+}
+
+.am-faq .am-faq-content ul li:last-child {
+	padding: 2px 0 0 0;
+}
+
+.am-comment-bd ol {
+	list-style: none;
+	display: block;
+}
+
+.am-comment-bd ol.am-entry {
+	font-size: 13px;
+	padding: 0px;
+	margin-bottom: 15px;
+	border-left: 3px solid #CCC;
+	background-color: rgba(0, 0, 0, 0.03);
+}
+
+.am-comment-bd ol.am-entry li.am-ds-entry {
+	padding: 6px;
+	margin: 0;
+	border-top: 1px solid #e6e6e6;
+	font: inherit;
+	background: none;
+	line-height: inherit;
+	vertical-align: baseline;
+	float: none;
+	overflow: visible;
+	transition: none;
+}
+
+.am-comment-bd ol.am-entry li.am-ds-entry:first-child {
+	border-top: 0px;
+}
+
+.am-comment-bd ol.am-entry li.am-ds-entry .am-ds-body {
+	color: #999;
+}
+
+.am-comment-bd ol.am-entry li.am-ds-entry .am-ds-body .am-ds-ctx-head {
+	color: #999;
+	position: relative;
+	line-height: 1em;
+	padding: 1px 0 0;
+	margin: 0 0 .25em;
+}
+
+.am-comment-bd ol.am-entry li.am-ds-entry .am-ds-body .am-ds-ctx-head span
+	{
+	color: #999;
+	font-weight: bold;
+}
+
+.am-comment-bd ol.am-entry li.am-ds-entry .am-ds-body .am-ds-ctx-head .ds-ctx-nth
+	{
+	color: #999;
+	font-size: 12px;
+	position: absolute;
+	top: 2px;
+	right: 0;
+}
+
+.am-comment-bd ol.am-entry li.am-ds-entry .am-ds-body .am-ds-ctx-content
+	{
+	position: relative;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	line-height: 20px;
+}
+
+.am-comment-main:after,.am-comment-main:before {
+	border-width: none;
+	border-style: none;
+}
+
+.am-navbar-input {
+	height: 32px;
+	line-height: 22px;
+	padding-left: 10px;
+	width: 70%;
+}
+
+.notifications-list {
+	overflow: hidden;
+	position: relative;
+}
+
+.notifications-list .notification {
+	position: relative;
+	padding: 7px 12px;
+	border-bottom: 1px solid #eee;
+}
+
+.notifications-list .notification:first-child {
+	border-top: 1px solid #eee;
+}
+
+.notifications-list .notification:last-child {
+	border-bottom: 0px;
+}
+
+.notification .notification-title {
+	font-size: 14px;
+	font-weight: bold;
+	padding-bottom: 1px;
+	margin-right: 35px;
+}
+
+.notification .notification-description {
+	font-size: 12px;
+	color: #666;
+	display: block;
+	margin-right: 35px;
+}
+
+.notification .notification-ago {
+	font-size: 12px;
+	font-style: italic;
+	color: #bbb;
+	display: block;
+}
+
+.notification .notification-ago:last-child {
+	border-bottom: 0px;
+}
+
+.notification .notification-icon {
+	padding: 0 6px;
+	line-height: 26px;
+	text-align: center;
+	border-radius: 0.25em;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	margin: -13px 12px 0 0;
+	font-size: 14px;
+	color: #fff;
+	background-color: #f4b04f;
+}
